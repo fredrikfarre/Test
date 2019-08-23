@@ -24,7 +24,7 @@ public final class Contact implements Serializable, Comparable<Contact>{
   private String name;
   private String email;
   private String phone;
-  
+
   /**
    * Constructs a new Contact, using the arguments for the state.
    * @param name The name of this Contact (a name is a simple String with both
@@ -43,12 +43,24 @@ public final class Contact implements Serializable, Comparable<Contact>{
      */
 
     if(name == null) {
-              throw new NullPointerException("The name can't be empty")
-            }
+        throw new NullPointerException("The name can't be empty");
+    }
+    else if (name.equals("")) {
+        throw new IllegalArgumentException("You need to write your name");
+    }
+    else if (email == null) {
+        this.email = "";
+    }
+    else if (phone == null) {
+        this.phone = "";
 
 
-    /*if(name.equals(" "))
-      throw new NullPointerException("can't be empty");*/
+
+
+
+
+
+
   }
     /* 
      * Constructor second version:
@@ -71,7 +83,9 @@ public final class Contact implements Serializable, Comparable<Contact>{
    * Returns the name of this contact, as a reference to a String
    * @return the name of this contact
    */
-  public String name() { return name; }
+  public String name() {
+    return name;
+  }
 
   /**
    * Returns the email of this contact, as a reference to a String
@@ -120,11 +134,15 @@ public final class Contact implements Serializable, Comparable<Contact>{
    * See java.lang.String for an explanation on how Strings are compared.
    */
   @Override
-  public int compareTo(Contact other){
+  public int compareTo(Contact contact){
     // TODO: Implement a correct version of compareTo().
     // You should only care about the name, so use the compareTo in java.lang.String
     // on the name variables only.
-    return 0;
+    if (contact == null){
+      throw new NullPointerException("The name already exist");
+    }
+
+    return name().compareTo(contact.name());
   }
   
   /**
@@ -134,7 +152,13 @@ public final class Contact implements Serializable, Comparable<Contact>{
    */
   @Override
   public boolean equals(Object other){
+
+    if(other == null) {
+
+    }else
     /* TODO:
+
+
      * Implement a proper version of equals() where
      * you only care about whether the name is equal to
      * the name of the other object (everything else may differ).
