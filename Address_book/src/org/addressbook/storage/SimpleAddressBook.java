@@ -31,6 +31,8 @@ public class SimpleAddressBook implements SimpleMutableList<Contact>{
     ".address_book";
   
   private List<Contact> entries;
+
+
   /**
    * Creates a new SimpleAddressBook with an empty list of {@link Contact} elements.
    */
@@ -39,8 +41,13 @@ public class SimpleAddressBook implements SimpleMutableList<Contact>{
   }
   
   public int numberOfEntries(){
+    entries.size();
+//check//
     return entries.size();
+
   }
+
+
 
   public void listEntries(){
     List<Contact> copy = new ArrayList<>(entries);
@@ -53,10 +60,10 @@ public class SimpleAddressBook implements SimpleMutableList<Contact>{
   public void addEntry(Contact c){
     System.out.println("You must implement addEntry(Contact c)");
     System.out.println("In class org.addressbook.storage.SimpleAddressBook");
+    entries.add(c);
   }
 
-  public boolean contains(Contact c){
-    return entries.contains(c);
+  public boolean contains(Contact c){ return entries.contains(c);
   }
 
 

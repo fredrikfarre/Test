@@ -152,13 +152,14 @@ public final class Contact implements Serializable, Comparable<Contact>{
    */
   @Override
   public boolean equals(Object other){
+    if(other == null || !(other instanceof Contact)) {
+      return false;
+    }
+      Contact contact =  (Contact)other;
+      return this.name().equals(contact.name());
 
-    if(other == null) {
 
-    }else
     /* TODO:
-
-
      * Implement a proper version of equals() where
      * you only care about whether the name is equal to
      * the name of the other object (everything else may differ).
@@ -170,7 +171,7 @@ public final class Contact implements Serializable, Comparable<Contact>{
      *    use the version of equals in java.lang.String on the
      *    name variables of both objects.
      */
-    return false;
+    //return false;
   }
 
   /**
@@ -180,5 +181,7 @@ public final class Contact implements Serializable, Comparable<Contact>{
   @Override
   public int hashCode(){
     return name.hashCode();
+
+
   }
 }
